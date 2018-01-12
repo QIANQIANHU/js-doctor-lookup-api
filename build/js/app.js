@@ -101,7 +101,7 @@ $(document).ready(function () {
             } else {
               confirmation += "No";
             }
-            $("#responce-name").prepend("<li>" + doctorPractice.practices[0].name + "<ul>" + "<li>First name: " + doctorPractice.profile.first_name + "</li>" + "<li>Last name: " + doctorPractice.profile.last_name + "</li>" + "<li>Address: " + doctorPractice.practices[0].visit_address.city + ", " + doctorPractice.practices[0].visit_address.zip + ", " + doctorPractice.practices[0].visit_address.street + "</li>" + "<li>Website: " + doctorPractice.practices[0].website + "</li>" + "<li>Accepted new patients: " + confirmation + "</li>" + "</ul>" + "</li>");
+            $("#responce-name").prepend("<li>" + doctorPractice.practices[0].name + "<ul>" + "<li>First name: " + doctorPractice.profile.first_name + "</li>" + "<li>Last name: " + doctorPractice.profile.last_name + "</li>" + "<li>Address: " + doctorPractice.practices[0].visit_address.city + ", " + doctorPractice.practices[0].visit_address.zip + ", " + doctorPractice.practices[0].visit_address.street + "</li>" + "<li>Phone number: " + doctorPractice.practices[0].phones[0].number + "</li>" + "<li>Website: " + doctorPractice.practices[0].website + "</li>" + "<li>Accepted new patients: " + confirmation + "</li>" + "</ul>" + "</li>");
           });
         }
       },
