@@ -14,8 +14,8 @@ Everybody needs to see a doctor sometimes. But finding a doctor that provides th
 * go to root directory of this project
 * run $ npm install
 * run $ bower install
-* in root directory of this project create .env file using command $ touch .env
-* go to https://developer.betterdoctor.com/ and apply for your apiKey, then implement it to .env file:
+* go to https://developer.betterdoctor.com/ and apply for your apiKey
+* implement your apiKey to .env file:
   exports.apiKey = "[yourApiKeyHere]";
 * run $ gulp build
 * run $ gulp serve
