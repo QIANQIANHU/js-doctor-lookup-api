@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     $.ajax({
       //location is fixed to Seattle by providing its latitude and longitude in url
-      url: `https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=37.773%2C-122.413%2C100&skip=0&limit=10&user_key=${apiKey}`,
+      url: `https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=47.606%2C-122.332%2C100&skip=0&limit=10&user_key=${apiKey}`,
       type: 'GET',
       data: {
         format: 'json'
@@ -32,7 +32,7 @@ $(document).ready(function() {
             } else {
               confirmation += "No"
             }
-            $("#responce-name").prepend("<li>"+ doctorPractice.practices[0].name +
+            $("#responce-issue").prepend("<li>"+ doctorPractice.practices[0].name +
                                           "<ul>" +
                                             "<li>First name: " + doctorPractice.profile.first_name + "</li>" +
                                             "<li>Last name: " + doctorPractice.profile.last_name + "</li>" +
@@ -55,51 +55,51 @@ $(document).ready(function() {
 
 
 //Part about searching by doctor's name
-// $(document).ready(function() {
-//   $("#searching-name-form").submit(function(event) {
-//     event.preventDefault();
-//
-//     let name = $("#name").val();
-//     $("#name").val("");
-//     let newDoctor = new DoctorHelper(name);
-//
-//     $.ajax({
-//       //location is fixed to Seattle by providing its latitude and longitude in url
-//       url: `https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=37.773%2C-122.413%2C100&skip=0&limit=10&user_key=${apiKey}`,
-//       type: 'GET',
-//       data: {
-//         format: 'json'
-//       },
-//       success: function(response) {
-//         $(".issue-results-succes").show();
-//         $("#searching-issue").text(issue);
-//         if (response.meta.total === 0) {
-//           $("#responce-name").text("We are so sorry but no doctors meet the criteria. Try again!")
-//         } else {
-//           response.data.forEach(function(doctorPractice) {
-//             let confirmation = "";
-//             let acceptedNewPatient = doctorPractice.practices[0].accepts_new_patients;
-//             if (acceptedNewPatient === true) {
-//               confirmation += "Yes"
-//             } else {
-//               confirmation += "No"
-//             }
-//             $("#responce-name").prepend("<li>"+ doctorPractice.practices[0].name +
-//                                           "<ul>" +
-//                                             "<li>First name: " + doctorPractice.profile.first_name + "</li>" +
-//                                             "<li>Last name: " + doctorPractice.profile.last_name + "</li>" +
-//                                             "<li>Address: " + doctorPractice.practices[0].visit_address.city + ", " + doctorPractice.practices[0].visit_address.zip + ", "  + doctorPractice.practices[0].visit_address.street + "</li>" +
-//                                             "<li>Website: " + doctorPractice.practices[0].website + "</li>" +
-//                                             "<li>Accepted new patients: " + confirmation + "</li>" +
-//                                           "</ul>" +
-//                                         "</li>");
-//           });
-//         }
-//       },
-//       error: function() {
-//         $(".issue-results-error").show();
-//         $("#issue-errors").text("There was an error processing your request about issue. Please try again.");
-//       }
-//     });
-//   });
-// });
+$(document).ready(function() {
+  $("#searching-name-form").submit(function(event) {
+    event.preventDefault();
+
+    let name = $("#name").val();
+    $("#name").val("");
+    let newDoctor = new DoctorHelper(name);
+
+    $.ajax({
+      //location is fixed to Seattle by providing its latitude and longitude in url
+      url: `https://api.betterdoctor.com/2016-03-01/doctors?last_name=${name}&location=47.606%2C-122.332%2C100&skip=0&limit=10&user_key=${apiKey}`,
+      type: 'GET',
+      data: {
+        format: 'json'
+      },
+      success: function(response) {
+        $(".name-results-succes").show();
+        $("#searching-name").text(name);
+        if (response.meta.total === 0) {
+          $("#responce-name").text("We are so sorry but no doctors meet the criteria. Try again!")
+        } else {
+          response.data.forEach(function(doctorPractice) {
+            let confirmation = "";
+            let acceptedNewPatient = doctorPractice.practices[0].accepts_new_patients;
+            if (acceptedNewPatient === true) {
+              confirmation += "Yes"
+            } else {
+              confirmation += "No"
+            }
+            $("#responce-name").prepend("<li>"+ doctorPractice.practices[0].name +
+                                          "<ul>" +
+                                            "<li>First name: " + doctorPractice.profile.first_name + "</li>" +
+                                            "<li>Last name: " + doctorPractice.profile.last_name + "</li>" +
+                                            "<li>Address: " + doctorPractice.practices[0].visit_address.city + ", " + doctorPractice.practices[0].visit_address.zip + ", "  + doctorPractice.practices[0].visit_address.street + "</li>" +
+                                            "<li>Website: " + doctorPractice.practices[0].website + "</li>" +
+                                            "<li>Accepted new patients: " + confirmation + "</li>" +
+                                          "</ul>" +
+                                        "</li>");
+          });
+        }
+      },
+      error: function() {
+        $(".name-results-error").show();
+        $("#name-errors").text("There was an error processing your request about name. Please try again.");
+      }
+    });
+  });
+});
