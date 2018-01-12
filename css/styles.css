@@ -1,3 +1,21 @@
+body {
+  background-color: #ccf2ff;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #0099cc;
+}
+
+.btn-primary {
+  background-color: #0099cc;
+}
+
 .issue-results-succes, .issue-results-error, .name-results-succes, .name-results-error {
   display: none;
+}
+
+.forms {
+  background-color: #4dd2ff;
+  padding: 10px;
 }

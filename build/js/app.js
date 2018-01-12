@@ -40,7 +40,7 @@ $(document).ready(function () {
 
     $.ajax({
       //location is fixed to Seattle by providing its latitude and longitude in url
-      url: 'https://api.betterdoctor.com/2016-03-01/doctors?query=' + issue + '&location=47.606%2C-122.332%2C100&skip=0&limit=10&user_key=' + apiKey,
+      url: 'https://api.betterdoctor.com/2016-03-01/doctors?query=' + issue + '&location=47.606%2C-122.332%2C100&skip=0&limit=5&user_key=' + apiKey,
       type: 'GET',
       data: {
         format: 'json'
@@ -49,7 +49,7 @@ $(document).ready(function () {
         $(".issue-results-succes").show();
         $("#searching-issue").text(issue);
         if (response.meta.total === 0) {
-          $("#responce-name").text("We are so sorry but no doctors meet the criteria. Try again!");
+          $("#responce-issue").text("We are so sorry but no doctors meet the criteria. Try again!");
         } else {
           response.data.forEach(function (doctorPractice) {
             var confirmation = "";
@@ -82,7 +82,7 @@ $(document).ready(function () {
 
     $.ajax({
       //location is fixed to Seattle by providing its latitude and longitude in url
-      url: 'https://api.betterdoctor.com/2016-03-01/doctors?last_name=' + name + '&location=47.606%2C-122.332%2C100&skip=0&limit=10&user_key=' + apiKey,
+      url: 'https://api.betterdoctor.com/2016-03-01/doctors?last_name=' + name + '&location=47.606%2C-122.332%2C100&skip=0&limit=5&user_key=' + apiKey,
       type: 'GET',
       data: {
         format: 'json'
