@@ -9,7 +9,52 @@
   </head>
   <body>
     <div class="container">
-
+      <h1 class="jumbotron">Seattle Doctor Lookup</h1>
+      <h4>Everybody needs to see a doctor sometimes. But finding a doctor that provides the services you need nearby can be time consuming.</h4>
+      <h4>This website allows users to enter a medical issue (ie: “sore throat”, "rash", etc.) into a form, submit it, and receive a list of doctors in Seattle who can treat their medical issue.</h4>
+      <h4>This website is based on <a href="https://developer.betterdoctor.com/">BetterDoctor</a> application.</h4>
+      <br>
+      <br>
+      <hr>
+      <h3>Your searching:</h3>
+      <form id="searching-issue-form">
+        <h4>Enter a medical issue: </h4>
+        <p>(stay focused on one issue)</p>
+        <div class="form-group">
+          <input type="text" class="form-control" id="issue">
+        </div>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+      <form id="searching-name-form">
+        <h4>Enter a doctor's name: </h4>
+        <p>(second name only)</p>
+        <div class="form-group">
+          <input type="text" class="form-control" id="name">
+        </div>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+      <br>
+      <br>
+      <hr>
+      <div class="results">
+        <h2>List of doctors in the Seattle area:</h2>
+        <div class="issue-results">
+          <div class="issue-results-succes">
+            <h3>Who can treat <span id="searching-issue"></span>:</h3>
+          </div>
+          <div class="issue-results-error">
+            <h3><span id="issue-errors"></span></h3>
+          </div>
+        </div>
+        <div class="name-results">
+          <div class="name-results-succes">
+            <h3>Who name is <span id="searching-name"></span>:</h3>
+          </div>
+          <div class="name-results-error">
+            <h3><span id="name-errors"></span></h3>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
