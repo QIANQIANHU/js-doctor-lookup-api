@@ -21,9 +21,28 @@ $(document).ready(function() {
       success: function(response) {
         $(".issue-results-succes").show();
         $("#searching-issue").text(issue);
-        response.data.forEach(function(doctorPractice) {
-          $("#last-name").prepend("<li>" + doctorPractice.practices[0].name + "</li>");
-        });
+        if (response.meta.total === 0) {
+          $("#responce-name").text("We are so sorry but no doctors meet the criteria. Try again!")
+        } else {
+          response.data.forEach(function(doctorPractice) {
+            let confirmation = "";
+            let acceptedNewPatient = doctorPractice.practices[0].accepts_new_patients;
+            if (acceptedNewPatient === true) {
+              confirmation += "Yes"
+            } else {
+              confirmation += "No"
+            }
+            $("#responce-name").prepend("<li>"+ doctorPractice.practices[0].name +
+                                          "<ul>" +
+                                            "<li>First name: " + doctorPractice.profile.first_name + "</li>" +
+                                            "<li>Last name: " + doctorPractice.profile.last_name + "</li>" +
+                                            "<li>Address: " + doctorPractice.practices[0].visit_address.city + ", " + doctorPractice.practices[0].visit_address.zip + ", "  + doctorPractice.practices[0].visit_address.street + "</li>" +
+                                            "<li>Website: " + doctorPractice.practices[0].website + "</li>" +
+                                            "<li>Accepted new patients: " + confirmation + "</li>" +
+                                          "</ul>" +
+                                        "</li>");
+          });
+        }
       },
 
       error: function() {
@@ -33,3 +52,10 @@ $(document).ready(function() {
     });
   });
 });
+// "<ul>"+
+//   "<li>First name: " + doctorPractice.profile.first_name + "</li>" +
+//   "<li>Last name: " + doctorPractice.profile.last_name + "</li>" +
+//   "<li>Address: " + doctorPractice.practices[0].visit_address.city + "</li>" +
+//   "<li>Website: " + doctorPractice.practices[0].website + "</li>" +
+//   "<li>accepting new patients: " + doctorPractice.practices[0].accepts_new_patients + "</li>" +
+// "<ul>"
