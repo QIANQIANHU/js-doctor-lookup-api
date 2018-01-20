@@ -32,7 +32,7 @@ $(document).ready(function() {
             } else {
               confirmation += "No"
             }
-            $("#responce-issue").prepend("<li>"+ doctorPractice.practices[0].name +
+            $("#responce-issue").prepend("<li><em>"+ doctorPractice.practices[0].name + "</em>" +
                                           "<ul>" +
                                             "<li>First name: " + doctorPractice.profile.first_name + "</li>" +
                                             "<li>Last name: " + doctorPractice.profile.last_name + "</li>" +
@@ -84,7 +84,7 @@ $(document).ready(function() {
             } else {
               confirmation += "No"
             }
-            $("#responce-name").prepend("<li>"+ doctorPractice.practices[0].name +
+            $("#responce-name").prepend("<li><em>"+ doctorPractice.practices[0].name + "</em>" +
                                           "<ul>" +
                                             "<li>First name: " + doctorPractice.profile.first_name + "</li>" +
                                             "<li>Last name: " + doctorPractice.profile.last_name + "</li>" +
