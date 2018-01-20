@@ -6,7 +6,7 @@ var apiKey = require('./../.env').apiKey;
 $(document).ready(function() {
   $("#searching-issue-form").submit(function(event) {
     event.preventDefault();
-
+    $(".image").hide();
     let issue = $("#issue").val();
     $("#issue").val("");
     let newIssue = new IssueHelper(issue);

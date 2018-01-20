@@ -1,14 +1,18 @@
-body {
-  background-color: #ccf2ff;
+.col-md-6 {
+  width: 550px;
+  margin: 10px;
 }
 
 .jumbotron {
   text-align: center;
-  background-color: #0099cc;
+  background-color: #4d4d4d;
+  color: white;
+  font-size: 56px;
+  font-style: italic;
 }
 
 .btn-primary {
-  background-color: #0099cc;
+  background-color: #c34040;
 }
 
 .issue-results-succes, .issue-results-error, .name-results-succes, .name-results-error {
@@ -16,6 +20,14 @@ body {
 }
 
 .forms {
-  background-color: #4dd2ff;
+  background-color: #57b8e6;
   padding: 10px;
+}
+
+img {
+  width: 650px;
+}
+
+em {
+  color: #57b8e6;
 }
